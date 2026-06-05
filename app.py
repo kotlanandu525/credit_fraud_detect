@@ -54,14 +54,31 @@ st.set_page_config(
 @st.cache_resource
 def load_model():
 
-    return tf.keras.models.load_model(
-        "attention_model(2).keras",
-        custom_objects={
-            "PositionalEncoding": PositionalEncoding
-        },
-        compile=False
-    )
+    import os
 
+    st.write("Current Files:")
+    st.write(os.listdir("."))
+
+    try:
+
+        model = tf.keras.models.load_model(
+            "attention_model (2).keras",
+            custom_objects={
+                "PositionalEncoding": PositionalEncoding
+            },
+            compile=False
+        )
+
+        st.success("Model Loaded Successfully")
+
+        return model
+
+    except Exception as e:
+
+        st.error("MODEL LOAD FAILED")
+        st.exception(e)
+
+        raise e
 
 @st.cache_resource
 def load_scaler():
