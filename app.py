@@ -55,7 +55,7 @@ st.set_page_config(
 def load_model():
 
     return tf.keras.models.load_model(
-        "attention_model.keras",
+        "attention_model(2).keras",
         custom_objects={
             "PositionalEncoding": PositionalEncoding
         },
@@ -65,7 +65,7 @@ def load_model():
 
 @st.cache_resource
 def load_scaler():
-    return joblib.load("scaler.pkl")
+    return joblib.load("scaler(2).pkl")
 
 
 model = load_model()
