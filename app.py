@@ -62,7 +62,7 @@ def load_model():
     try:
 
         model = tf.keras.models.load_model(
-            "attention_model (2).keras",
+            "attention_model.keras",
             custom_objects={
                 "PositionalEncoding": PositionalEncoding
             },
@@ -82,7 +82,7 @@ def load_model():
 
 @st.cache_resource
 def load_scaler():
-    return joblib.load("scaler(2).pkl")
+    return joblib.load("scaler.pkl")
 
 
 model = load_model()
